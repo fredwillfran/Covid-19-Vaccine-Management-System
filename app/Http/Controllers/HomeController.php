@@ -23,12 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->isCheckin) {
-            return view('users.checkin');
-        }else if (auth()->user()->isCheckout == 1) {
-            return view('users.checkout');
-        }else {
+        if (auth()->user()->isCheckin || auth()->user()->isCheckout) {
             return view('home');
+        }else {
+            return view('homepage');
         }
     }
 }
