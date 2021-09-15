@@ -15,3 +15,8 @@ Route::get('/checkin', function () {
 Route::get('/checkout', function () {
     return view('users.checkout');
 })->name('checkout')->middleware('isCheckout');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
