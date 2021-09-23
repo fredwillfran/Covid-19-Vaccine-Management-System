@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\HealthCenter;
 use App\Appointment;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\SaveAppointment;
 
 class CitizenController extends Controller
 {
@@ -35,7 +37,7 @@ class CitizenController extends Controller
         $appointment = $this->saveAppointment($citizen);
 
         // 3. SEND EMAIL NOTIFICATION
-
+        Mail::to($citizen->email)->send(new SaveAppointment($appointment));
         // 4. SEND SMS NOTIFICATION
 
         return redirect()->route('home')->with('success-message','appointment saved successfully.we have sent you an email.');
@@ -90,6 +92,7 @@ class CitizenController extends Controller
     {
         return Appointment::create([
             'citizen_id' => $citizen['id'],
+            'health_center_id' => HealthCenter::where('name', request('health_center'))->value('id'),
             'date' => Carbon::tomorrow()
             ]);
     }

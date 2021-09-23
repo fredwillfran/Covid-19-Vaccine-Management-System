@@ -4,14 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Appointment extends Model
+class Vaccine extends Model
 {
-    protected $guarded = [];
 
-    public function citizen()
-    {
-        return $this->belongsTo(Citizen::class);
-    }
+    protected $guarded = [];
 
     public function healthCenter()
     {
