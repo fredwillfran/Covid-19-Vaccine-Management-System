@@ -16,6 +16,9 @@ Route::get('/checkout', function () {
     return view('users.checkout');
 })->name('checkout')->middleware('isCheckout');
 
+Route::get('/appointment', 'CitizenController@create')->name('book-appointment');
+
+Route::post('/appointment', 'CitizenController@store')->name('save-appointment');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

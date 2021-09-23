@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    @include('partials.message')
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,7 +14,7 @@
                         </div>
                     @endif
 
-                    <a href="#">Book appointment</a>
+                    <a href="{{route('book-appointment')}}">Book appointment</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))
