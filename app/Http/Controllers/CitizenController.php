@@ -12,10 +12,6 @@ use App\Mail\SaveAppointment;
 
 class CitizenController extends Controller
 {
-    public function index()
-    {
-        //
-    }
 
     public function create()
     {
@@ -41,16 +37,6 @@ class CitizenController extends Controller
         // 4. SEND SMS NOTIFICATION
 
         return redirect()->route('home')->with('success-message','appointment saved successfully.we have sent you an email.');
-    }
-
-    public function edit(Citizen $citizen)
-    {
-        //
-    }
-
-    public function update(Request $request, Citizen $citizen)
-    {
-        //
     }
 
     protected function validateCitizen()

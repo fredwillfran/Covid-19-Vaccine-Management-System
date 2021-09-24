@@ -8,13 +8,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/checkin', function () {
-    return view('users.checkin');
-})->name('checkin')->middleware('isCheckin');
+Route::get('/checkin', 'CheckinController@index')->name('checkin.index')->middleware('isCheckin');
+Route::get('/checkin/{citizen}/edit', 'CheckinController@edit')->name('checkin.edit')->middleware('isCheckin');
+Route::patch('checkin/{citizen}', 'CheckinController@update')->name('checkin.update')->middleware('isCheckin');
 
-Route::get('/checkout', function () {
-    return view('users.checkout');
-})->name('checkout')->middleware('isCheckout');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('isCheckout');
+Route::get('/checkout/{citizen}/edit', 'CheckoutController@edit')->name('checkout.edit')->middleware('isCheckout');
+Route::patch('checkout/{citizen}', 'CheckoutController@update')->name('checkout.update')->middleware('isCheckout');
 
 Route::get('/appointment', 'CitizenController@create')->name('book-appointment');
 
