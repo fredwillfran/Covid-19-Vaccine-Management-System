@@ -1,7 +1,7 @@
-<script type="application/javascript" src="{{ asset('js/jquery-3.5.1.min.js') }}"></script>
-    <script type="application/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
-    <script type="application/javascript" src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
-    <script type="application/javascript">
+<script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+<script type="application/javascript" src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
+<script type="application/javascript" src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+<script type="application/javascript">
         $(document).ready(function() {
             $.noConflict();
             $('#tableSearch').DataTable({
@@ -15,4 +15,4 @@
                 "searching": true,
             });
         });
-    </script>
+</script>

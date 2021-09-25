@@ -21,8 +21,6 @@ class CitizenController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
-
         // VALIDATE FORM
         $attributes =  $this->validateCitizen();
 

@@ -14,8 +14,8 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{asset('css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     @yield('extra-css')
-    @yield('extra-script')
 </head>
 <body id="page-top">
     <!-- Page Wrapper -->
@@ -66,24 +66,24 @@
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Generate reports:</h6>
-                        <a class="collapse-item" href="#">Daily report</a>
-                        <a class="collapse-item" href="#">General report</a>
+                        <a class="collapse-item" href="/report/citizen">Per district</a>
+                        <a class="collapse-item" href="/generalReport/citizen">General report</a>
                     </div>
                 </div>
             </li>
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Charts</span></a>
-            </li>
+            </li> --}}
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
+            {{-- <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Tables</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -180,6 +180,7 @@
     <!-- Custom scripts for all pages-->
     <script src="{{asset('js/sb-admin-2.min.js')}}"></script>
     <!-- Page level plugins -->
+    @yield('extra-script')
 </body>
 
 </html>

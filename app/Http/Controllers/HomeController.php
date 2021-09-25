@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
@@ -25,6 +27,10 @@ class HomeController extends Controller
     {
         if (auth()->user()->isCheckin || auth()->user()->isCheckout) {
             return view('home');
+        }elseif (auth()->user()->role_id === 1) {
+            Session::flush();
+            Auth::logout();
+            return view('forbidden');
         }else {
             return view('homepage');
         }

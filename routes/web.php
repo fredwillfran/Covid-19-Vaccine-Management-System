@@ -17,8 +17,15 @@ Route::get('/checkout/{citizen}/edit', 'CheckoutController@edit')->name('checkou
 Route::patch('checkout/{citizen}', 'CheckoutController@update')->name('checkout.update')->middleware('isCheckout');
 
 Route::get('/appointment', 'CitizenController@create')->name('book-appointment');
-
 Route::post('/appointment', 'CitizenController@store')->name('save-appointment');
+
+Route::get('/report/citizen', 'ReportsController@showCitizenReport')->middleware(['auth']);
+Route::post('/report/citizen', 'ReportsController@reportCitizen')->middleware(['auth']);
+Route::get('/report/citizen/pdf', 'ReportsController@citizen_export_pdf')->middleware(['auth']);
+
+Route::get('/generalReport/citizen', 'ReportsController@showGeneralCitizenReport')->middleware(['auth']);
+Route::post('/generalReport/citizen', 'ReportsController@generalReportCitizen')->middleware(['auth']);
+Route::get('/generalReport/citizen/pdf', 'ReportsController@generalReport_export_pdf')->middleware(['auth']);
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

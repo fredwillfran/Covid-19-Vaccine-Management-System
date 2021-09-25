@@ -2,9 +2,7 @@
 @section('extra-css')
 <link rel="stylesheet" href="{{ asset('css/dataTables.bootstrap4.min.css') }}">
 @endsection
-@section('extra-script')
-<script type="application/javascript" src="{{ asset('js/jquery.min.js') }}"></script>
-@endsection
+
 @section('content')
 <div class="container-fluid">
         @include('partials.message')

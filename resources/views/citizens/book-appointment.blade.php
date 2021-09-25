@@ -68,7 +68,7 @@
                                             <small class="ml-1">Address</small>
                                             <div class="row">
                                         <div class="input-group col-md-4">
-                                            <select name="city" id="city" class="form-control">
+                                            <select name="city" id="type" class="form-control">
                                                 <option value="Kigali">Kigali</option>
                                                 <option value="East">East</option>
                                                 <option value="West">West</option>
@@ -76,12 +76,15 @@
                                                 <option value="South">South</option>
                                             </select>
                                         </div>
-                                        <div class="input-group col-md-4"><input id="district" type="text" class="form-control @error('district') is-invalid @enderror" name="district" value="{{ old('district') }}" placeholder="Enter district" required autocomplete="district">
-                                            @error('district')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror</div>
+
+                                        <div class="input-group col-md-4">
+                                                <select name="district" id="size" class="form-control">
+                                                    <option value="Gasabo">Gasabo</option>
+                                                    <option value="Kicukiro">Kicukiro</option>
+                                                    <option value="Nyaru">Nyarugenge</option>
+                                                </select>
+                                            </div>
+
                                         <div class="input-group col-md-4"><input id="sector" type="text" class="form-control @error('sector') is-invalid @enderror" name="sector" value="{{ old('sector') }}" placeholder="Enter sector" required autocomplete="sector">
                                             @error('sector')
                                             <span class="invalid-feedback" role="alert">
@@ -154,4 +157,7 @@
         </div>
     </div>
 </div>
+@endsection
+@section('extra-js')
+<script src="{{asset('js/appointment.js')}}"></script>
 @endsection
