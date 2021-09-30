@@ -9,6 +9,7 @@ use App\Appointment;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SaveAppointment;
+use App\Profile;
 
 class CitizenController extends Controller
 {
@@ -27,10 +28,15 @@ class CitizenController extends Controller
        // 1. SAVE CITIZEN
        $citizen = $this->saveCitizen($attributes);
 
-        // 2. SAVE APPOINTMENT
+       // 2. SAVE PROFILE
+        $profile = Profile::create([
+            'citizen_id' => $citizen->id,
+            'user_id' => auth()->user()->id,
+        ]);
+        // 3. SAVE APPOINTMENT
         $appointment = $this->saveAppointment($citizen);
 
-        // 3. SEND EMAIL NOTIFICATION
+        // 4. SEND EMAIL NOTIFICATION
         Mail::to($citizen->email)->send(new SaveAppointment($appointment));
         // 4. SEND SMS NOTIFICATION
 

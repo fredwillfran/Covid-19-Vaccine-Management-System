@@ -17,4 +17,9 @@ class Citizen extends Model
     {
         return $this->hasOne(Appointment::class);
     }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class);
+    }
 }

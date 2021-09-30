@@ -5,6 +5,7 @@
     @include('partials.message')
     <div class="row justify-content-center">
         <div class="col-md-8">
+            @include('partials.message')
             <div class="card">
                 <div class="card-header">Welcome {{auth()->user()->name}}</div>
                 <div class="card-body">
@@ -22,7 +23,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="#">Download your vaccination certificate</a>
+                    <a href="{{route('showProfile',auth()->user()->id)}}">View your profile and download vaccination certificate</a>
                 </div>
                 <div class="card-body">
                     @if (session('status'))

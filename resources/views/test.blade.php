@@ -36,6 +36,8 @@
     </div> --}}
 
     <div class="container">
+            <img src="http://localhost:8000/img/rwandaLogo.jpg" alt="" width="100" height="100">
+            <img src="http://localhost:8000/img/rbcLogo.png" alt="" width="250" height="100">
             <h3 class="title"><u>General report of vaccinated people on 39 dec 2021</u></h3>
             <div>
                 <p>
