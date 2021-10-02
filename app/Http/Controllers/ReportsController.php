@@ -78,7 +78,7 @@ class ReportsController extends Controller
 
         session()->put('date',Carbon::now()->format('d-m-Y'));
 
-        $pdf = PDF::loadView('reports.general.citizensList', compact('citizens'));
+        $pdf = PDF::loadView('reports.general.citizensList', compact('citizens'))->setPaper('A4', 'portrait');
 
         return $pdf->download('citizens_General_Report.pdf');
     }

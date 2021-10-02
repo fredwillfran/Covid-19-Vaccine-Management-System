@@ -11,21 +11,17 @@
             width: 1200px;
             margin: auto;
         }
-        table,
-        tr,
-        th,
-        td {
+        table,tr,th,td {
             border: 1px solid black;
             border-collapse: collapse;
             padding: 10px;
-        }
-        .title {
-            /* text-align: center; */
         }
     </style>
 </head>
 <body>
     <div class="container">
+                    <img src="{{public_path('img/rbcLogo.png')}}" width="300" height="100">
+                    <br>
         <h3 class="title"><u>People that have taken dose {{session('dose')}} of vaccination in {{session('district')}} district</u></h3>
         <table>
             <thead>

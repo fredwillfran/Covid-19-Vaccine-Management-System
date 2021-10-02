@@ -6,10 +6,6 @@ Route::get('/', function () {
     return view('auth.login');
 })->middleware('guest');
 
-Route::get('/test', function () {
-    return view('test');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
@@ -34,7 +30,7 @@ Route::post('/generalReport/citizen', 'ReportsController@generalReportCitizen')-
 Route::get('/generalReport/citizen/pdf', 'ReportsController@generalReport_export_pdf')->middleware(['auth']);
 
 Route::get('/profile/{profile}', 'ProfileController@show')->middleware('auth')->name('showProfile');
-// Route::post('/profile/citizen', 'ReportsController@generalReportCitizen')->middleware(['auth']);
+
 Route::get('/profile/{profile}/certificate/pdf', 'ProfileController@downloadCertificate')->name('profile.download')->middleware(['auth']);
 
 Route::group(['prefix' => 'admin'], function () {

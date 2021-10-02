@@ -8,40 +8,36 @@
     <title>Citizens report pdf</title>
     <style>
         .container {
-            width: 1200px;
+            width: 800px;
             margin: auto;
         }
-        table,
-        tr,
-        th,
-        td {
+        table,tr,th,td {
             border: 1px solid black;
             border-collapse: collapse;
             padding: 10px;
         }
-        .title {
-            /* text-align: center; */
+        img{
+            display: block;
+            margin: auto;
+        }
+        .text-center{
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    {{-- <div class="container">
-        <h3 class="title"><u>General report of vaccinated people on {{session('date')}}</u></h3>
-        <div>
-            <p>
-                <b>Total of people vaccinated today: </b>{{$citizens->count()}}</p>
-            <p>
-                    <b>Dose: </b>{{session('dose')}}</p>
-        </div>
-    </div> --}}
-
     <div class="container">
-            <h3 class="title"><u>General report of vaccinated people on 39 dec 2021</u></h3>
+            <img src="{{public_path('img/rwandaLogo.jpg')}}" width="200" height="200">
+            <br><br>
+            <h2 class="text-center"><u>Republic of Rwanda</u></h2>
+            <h3 class="text-center"><u>Ministry of health</u></h3>
+            <br><br>
+            <h3><u>General report of vaccinated people on {{session('date')}}</u></h3>
             <div>
                 <p>
-                    <b>Total of people vaccinated today: </b>400000</p>
+                    <b>Total of people vaccinated : </b>{{$citizens->count()}}</p>
                 <p>
-                        <b>Dose: </b>2</p>
+                <b>Dose: </b>{{session('dose')}}</p>
             </div>
         </div>
 </body>
