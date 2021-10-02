@@ -9,7 +9,9 @@ use App\Appointment;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\SaveAppointment;
+use App\Notifications\AppointmentSaved;
 use App\Profile;
+use Illuminate\Support\Facades\Notification;
 
 class CitizenController extends Controller
 {
@@ -38,9 +40,11 @@ class CitizenController extends Controller
 
         // 4. SEND EMAIL NOTIFICATION
         Mail::to($citizen->email)->send(new SaveAppointment($appointment));
-        // 4. SEND SMS NOTIFICATION
 
-        return redirect()->route('home')->with('success-message','appointment saved successfully.we have sent you an email.');
+        // 5. SEND SMS NOTIFICATION
+        Notification::send($citizen,new AppointmentSaved($citizen));
+
+        return redirect()->route('home')->with('success-message','appointment saved successfully.we have sent you an email and SMS.');
     }
 
     protected function validateCitizen()
@@ -69,7 +73,7 @@ class CitizenController extends Controller
             'firstname' => $attributes['firstname'],
             'lastname' => $attributes['lastname'],
             'email' => auth()->user()->email,
-            'phone' => $attributes['phone'],
+            'phone' => '+25' . $attributes['phone'],
             'city' => $attributes['city'],
             'district' => $attributes['district'],
             'sector' => $attributes['sector'],

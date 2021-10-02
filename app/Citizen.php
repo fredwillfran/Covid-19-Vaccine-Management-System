@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Citizen extends Model
 {
+    use Notifiable;
+
     protected $guarded = [];
 
     public function healthStatus()
@@ -21,5 +24,10 @@ class Citizen extends Model
     public function profile()
     {
         return $this->hasOne(Profile::class);
+    }
+
+    public function routeNotificationForNexmo($notification)
+    {
+        return $this->phone;
     }
 }
